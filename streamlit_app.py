@@ -1,4 +1,4 @@
-# Versión con datetime corregido
+
 import streamlit as st
 import pandas as pd
 from datetime import datetime
@@ -31,7 +31,7 @@ df["fecha"] = pd.to_datetime(df["fecha"], format="%Y-%m")
 
 st.title("Calculadora – Retrotraer Haber Previsional")
 
-haber_final = st.number_input("Importe conocido", value=53036.40, format="%.2f")
+haber_final = st.number_input("Importe conocido", value=53036.00, format="%.2f")
 fecha_conocida = st.text_input("Fecha del haber (YYYY‑MM)", "2022-11")
 fecha_retro = st.text_input("Retrotraer a fecha (YYYY‑MM)", "2022-01")
 
@@ -44,7 +44,7 @@ try:
         factor = 1.0
         for _, row in df_tramo.iterrows():
             if row.tipo == "porc":
-                factor *= 1 + row.valor
+                factor *= 1 + row.valor / 100
             else:
                 factor *= 1 + row.valor / haber_final
         haber_retro = haber_final / factor
