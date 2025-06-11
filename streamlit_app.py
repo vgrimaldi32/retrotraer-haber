@@ -3,7 +3,12 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 
-# Aumentos extraídos del Excel (2014 a 2025)
+# Mostrar el logo centrado
+st.image("logo.png", width=300)
+
+st.title("Calculadora – Retrotraer Haber Previsional")
+
+# Aumentos de movilidad
 AUMENTOS = [
     ("2020-03", "fijo", 1500),
     ("2020-03", "porc", 2.3),
@@ -28,8 +33,6 @@ AUMENTOS = [
 
 df = pd.DataFrame(AUMENTOS, columns=["fecha", "tipo", "valor"])
 df["fecha"] = pd.to_datetime(df["fecha"], format="%Y-%m")
-
-st.title("Calculadora – Retrotraer Haber Previsional")
 
 haber_final = st.number_input("Importe conocido", value=53036.00, format="%.2f")
 fecha_conocida = st.text_input("Fecha del haber (YYYY‑MM)", "2022-11")

@@ -1,3 +1,3 @@
 # Retrotraer Haber
 
-Calculadora para retrotraer haberes previsionales según aumentos de movilidad.
+Calculadora con logo del Estudio Grimaldi & Asociados.
